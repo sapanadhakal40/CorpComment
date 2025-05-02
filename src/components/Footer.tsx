@@ -1,15 +1,15 @@
 export default function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <small>
         <p>
-          &copy; Copyright by{" "}
+          &copy; Copyright by
           <a target="_blank" href="https://NoOne.com">
-            NoOne
+            NoOne.com
           </a>
         </p>
         <p>
-          <span>All Rights Reserved.</span>
+          <span className="u-italic u-bold">All Rights Reserved.</span>
         </p>
       </small>
     </footer>
