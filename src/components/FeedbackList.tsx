@@ -11,7 +11,7 @@ export default function FeedbackList() {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      "https://bytegrad.com/course-assets/projects/corpcomment/api/asdafasadf"
+      "https://bytegrad.com/course-assets/projects/corpcomment/api/feedbacks"
     )
       .then((response) => {
         if (!response.ok) {
