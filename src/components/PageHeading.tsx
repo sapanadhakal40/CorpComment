@@ -1,3 +1,7 @@
 export default function PageHeading() {
-  return <div></div>;
+  return (
+    <h1>
+      Give Feedback.<span>Publicly.</span>
+    </h1>
+  );
 }
