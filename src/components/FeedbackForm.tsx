@@ -15,9 +15,14 @@ export default function FeedbackForm({ onAddToList }: FeedbackFormProps) {
     }
     setText(newText);
   };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onAddToList(text);
+    setText("");
+  };
 
   return (
-    <form className="form">
+    <form onSubmit={handleSubmit} className="form">
       <textarea
         value={text}
         onChange={handleChange}
