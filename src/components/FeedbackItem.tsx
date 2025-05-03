@@ -21,7 +21,7 @@ export default function FeedbackItem({ feedbackItem }: FeedbackItemProps) {
           <p>{feedbackItem.text}</p>
         </div>
 
-        <p>{feedbackItem.daysAgo}d</p>
+        <p>{feedbackItem.daysAgo === 0 ? "NEW" : `${feedbackItem.daysAgo}d`}</p>
       </li>
     </div>
   );
