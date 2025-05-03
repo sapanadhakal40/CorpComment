@@ -1,5 +1,5 @@
-import { TFeedbackItem } from "../lib/type";
-import FeedbackList from "./FeedbackList";
+import { TFeedbackItem } from "../../lib/type";
+import FeedbackList from "../feedback/FeedbackList";
 import Header from "./Header";
 
 type ContainerProps = {
