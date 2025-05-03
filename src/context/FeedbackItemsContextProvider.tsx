@@ -10,6 +10,8 @@ type TFeedbackItemsContext = {
   feedbackItems: TFeedbackItem[];
   errorMessage: string;
   companyList: string[];
+  filteredFeedbackItems: TFeedbackItem[];
+  handleSelectCompany: (company: string) => void;
   handleAddToList: (text: string) => void;
 };
 export const FeedbackItemsContext = createContext<TFeedbackItemsContext | null>(
@@ -22,6 +24,7 @@ export default function FeedbackItemsContextProvider({
   const [feedbackItems, setFeedbackItems] = useState<TFeedbackItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [selectedCompany, setSelectedCompany] = useState("");
 
   const companyList = useMemo(
     () =>
@@ -31,6 +34,15 @@ export default function FeedbackItemsContextProvider({
           return array.indexOf(company) === index;
         }),
     [feedbackItems]
+  );
+  const filteredFeedbackItems = useMemo(
+    () =>
+      selectedCompany
+        ? feedbackItems.filter(
+            (feedbackItem) => feedbackItem.company === selectedCompany
+          )
+        : feedbackItems,
+    [feedbackItems, selectedCompany]
   );
 
   const handleAddToList = async (text: string) => {
@@ -59,6 +71,10 @@ export default function FeedbackItemsContextProvider({
         },
       }
     );
+  };
+
+  const handleSelectCompany = (company: string) => {
+    setSelectedCompany(company);
   };
   useEffect(() => {
     const fetchFeedbackItems = async () => {
@@ -90,6 +106,8 @@ export default function FeedbackItemsContextProvider({
         isLoading,
         errorMessage,
         companyList,
+        filteredFeedbackItems,
+        handleSelectCompany,
         handleAddToList,
       }}
     >
