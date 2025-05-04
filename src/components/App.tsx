@@ -9,9 +9,8 @@ function App() {
       <Footer />
       <FeedbackItemsContextProvider>
         <Container />
+        <HashtagList />
       </FeedbackItemsContextProvider>
-
-      <HashtagList />
     </div>
   );
 }
